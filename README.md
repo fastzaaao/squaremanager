@@ -17,6 +17,7 @@ Um bot Discord avançado para gerenciamento de aplicações na SquareCloud, com 
 - [Contribuição](#contribuição)
 - [Licença](#licença)
 - [Suporte](#suporte)
+- [Como Hospedar na Square Cloud](#como-hospedar-na-square-cloud)
 
 ## 🎯 Sobre o Projeto
 
@@ -76,27 +77,22 @@ Antes de começar, certifique-se de ter instalado:
 ## 🚀 Instalação
 
 1. **Clone o repositório**
-   \`\`\`bash
+   ```bash
    git clone https://github.com/fastzaaao/squaremanager.git
    cd squaremanager
-   \`\`\`
+   ```
 
 2. **Instale as dependências**
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 3. **Configure as variáveis de ambiente**
-   \`\`\`bash
+   ```bash
    cp .env.example .env
-   \`\`\`
+   ```
 
 4. **Edite o arquivo .env com suas configurações**
-
-5. **Criar arquivo de configuração obrigatório**
-   - Navegue até a pasta `data/`
-   - Crie um novo arquivo chamado `config.json`
-   - Adicione apenas `{}` dentro do arquivo
 
 ## ⚙️ Configuração
 
@@ -104,13 +100,13 @@ Antes de começar, certifique-se de ter instalado:
 
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
-\`\`\`env
+```env
 # Discord Bot Configuration
 DISCORD_TOKEN=seu_token_do_bot_discord
 CLIENT_ID=id_da_aplicacao_discord
 GUILD_ID=id_do_servidor_discord
 OWNER_ID=seu_id_de_usuario_discord
-\`\`\`
+```
 
 ### Configuração do Bot Discord
 
@@ -130,15 +126,10 @@ O bot precisa das seguintes permissões no Discord:
 - Gerenciar mensagens
 - Adicionar reações
 - Ver canais
+- Gerenciar threads
 - Mencionar todos
 
 ## 🔧 Configuração Inicial
-
-### Arquivos Necessários
-
-Antes de iniciar o bot, certifique-se de que existe o arquivo `data/config.json`:
-
-### Primeira Execução
 
 Após iniciar o bot pela primeira vez, é **essencial** realizar a configuração inicial através do comando `/painel`. Este comando abre o painel de administração onde você pode:
 
@@ -168,26 +159,21 @@ O bot **não funcionará corretamente** sem essa configuração inicial. Certifi
 - Uma forma de pagamento
 - Canais básicos (logs e vendas)
 
-**IMPORTANTE**: O Git não adiciona pastas vazias por padrão. Se a pasta `data/` não existir ou estiver vazia, você deve:
-1. Criar a pasta `data/` na raiz do projeto
-2. Criar o arquivo `data/config.json` com o conteúdo `{}`
-3. Este arquivo será preenchido automaticamente pelo bot na primeira execução
-
 ## 🎮 Uso
 
 ### Iniciando o Bot
 
-\`\`\`bash
+```bash
 node index.js
-\`\`\`
+```
 
 ### ⚡ Configuração Obrigatória
 
 **ATENÇÃO**: Após iniciar o bot pela primeira vez, execute imediatamente:
 
-\`\`\`
+```
 /painel
-\`\`\`
+```
 
 Este comando abrirá o painel de configuração onde você deve configurar:
 1. ✅ API da SquareCloud
@@ -220,7 +206,7 @@ O bot utiliza uma interface rica com botões interativos para:
 
 ## 📁 Estrutura do Projeto
 
-\`\`\`
+```
 squaremanager/
 ├── commands/                 # Comandos do bot
 │   ├── admin/               # Comandos administrativos
@@ -228,18 +214,18 @@ squaremanager/
 ├── config/                  # Arquivos de configuração
 ├── data/                    # Dados em JSON
 │   ├── applications.json    # Dados das aplicações
-│   ├── config.json         # Configurações gerais
-│   └── permissoes.json     # Sistema de permissões
+│   ├── config.json          # Configurações gerais (gerado automaticamente)
+│   └── permissoes.json      # Sistema de permissões
 ├── events/                  # Eventos do Discord
 ├── interactions/            # Interações (botões, modais, etc.)
-│   ├── buttons/            # Manipuladores de botões
-│   ├── modals/             # Manipuladores de modais
-│   └── selectMenus/        # Menus de seleção
+│   ├── buttons/             # Manipuladores de botões
+│   ├── modals/              # Manipuladores de modais
+│   └── selectMenus/         # Menus de seleção
 ├── jobs/                    # Tarefas agendadas
 ├── utils/                   # Utilitários e helpers
 ├── index.js                 # Arquivo principal
-└── package.json            # Dependências do projeto
-\`\`\`
+└── package.json             # Dependências do projeto
+```
 
 ## 🔧 API e Integrações
 
@@ -278,10 +264,6 @@ Contribuições são sempre bem-vindas! Para contribuir:
 - Teste suas mudanças antes de enviar
 - Atualize a documentação quando necessário
 
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
 ## 🆘 Suporte
 
 Se você encontrar algum problema ou tiver dúvidas:
@@ -307,4 +289,27 @@ Se você encontrar algum problema ou tiver dúvidas:
 
 ---
 
-**Desenvolvido com 💗 por Fast**
+## ☁️ Como Hospedar na Square Cloud
+
+Você pode hospedar esse bot na SquareCloud em poucos passos:
+
+### 1. Acesse o site da SquareCloud
+Entre em: [https://squarecloud.app](https://squarecloud.app)  
+Faça login com sua conta.
+
+### 2. Compacte o projeto
+Crie um arquivo `.zip` da raiz do projeto;
+**Evite incluir a pasta `node_modules`.**
+
+### 3. Envie o projeto para a SquareCloud
+1. Vá até a **Dashboard**
+2. Procure pelo botão **"Nova Aplicação"**
+3. Selecione o `.zip` do projeto
+4. Confirme o deploy
+
+### 4. Pronto! 🎉
+- O bot será iniciado automaticamente
+- Você poderá gerenciar tudo diretamente pela dashboard
+- Logs, status, reinício e muito mais — tudo disponível via painel
+
+---
