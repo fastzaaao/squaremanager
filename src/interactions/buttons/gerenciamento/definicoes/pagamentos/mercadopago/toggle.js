@@ -107,10 +107,10 @@ module.exports = {
       .setEmoji(mpAtivo ? getEmoji(emojis.on, '🟢') : getEmoji(emojis.off, '🔴'))
       .setStyle(mpAtivo ? ButtonStyle.Success : ButtonStyle.Danger);
 
-    const chaveButton = new ButtonBuilder()
-      .setCustomId(`chave_mercadopago_${interaction.user.id}`)
-      .setLabel('Chave de Integração')
-      .setEmoji(getEmoji(emojis.engrenagem, '⚙️'))
+     const tempoButton = new ButtonBuilder()
+      .setCustomId(`tempo_pagar_${interaction.user.id}`)
+      .setLabel('Tempo para Pagar')
+      .setEmoji(getEmoji(emojis.cooldown, '⏰'))
       .setStyle(ButtonStyle.Secondary);
 
     const definicoesButton = new ButtonBuilder()
@@ -124,7 +124,7 @@ module.exports = {
       .setEmoji(getEmoji(emojis.seta, '⬅️'))
       .setStyle(ButtonStyle.Secondary);
 
-    const row = new ActionRowBuilder().addComponents(toggleButton, chaveButton, definicoesButton, backButton);
+    const row = new ActionRowBuilder().addComponents(toggleButton, tempoButton, definicoesButton, backButton);
 
     await interaction.update({
       embeds: [embed],
