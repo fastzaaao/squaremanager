@@ -7,6 +7,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('manage-apps')
     .setDescription('Configurar um app/produto existente')
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption(option =>
       option
         .setName('produto')

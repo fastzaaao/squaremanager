@@ -7,6 +7,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('enviar-msg')
     .setDescription('Envia o painel de compra do produto')
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption(option =>
       option
         .setName('produto')
